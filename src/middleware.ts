@@ -18,7 +18,7 @@ export const onRequest = defineMiddleware((context, next) => {
     const [username, pwd] = atob(authValue).split(":");
 
     // check if the username and password are valid
-    if (username === "admin" && pwd === "admin") {
+    if (username === NETLIFY_USER && pwd === NETLIFY_PASS) {
       // forward request
       return next();
     }
