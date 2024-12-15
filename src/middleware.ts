@@ -1,5 +1,7 @@
 import { defineMiddleware } from "astro/middleware";
 
+const { NETLIFY_USER, NETLIFY_PASS } = import.meta.env;
+
 export const onRequest = defineMiddleware((context, next) => {
   if (!context.url.pathname.startsWith("/protected")) {
     return next();
